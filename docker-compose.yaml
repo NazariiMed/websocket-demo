@@ -1,0 +1,16 @@
+version: '2.1'
+volumes:
+  websocket_demo_data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:11
+    volumes:
+      - websocket_demo_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: websocket_demo
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
